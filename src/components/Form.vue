@@ -7,12 +7,13 @@
                 <span>Email</span>
             </label>
         </div>
-        <div>
+        <div class="password-content">
             <label class="pure-material-textfield-outlined">
                 <input type="password" placeholder="Senha" v-model="senha">
                 <span>Senha</span>
             </label>
         </div>
+        <a href="/" class="btn-recovery">recuperar minha senha</a>
         <router-link to="/home" tag="button" :disabled="!clickable" >entrar</router-link>
     </form>
   </div>
@@ -42,19 +43,22 @@ export default {
         --pure-material-onsurface-rgb: #FF8822;
         --pure-material-primary-rgb: #FF8822;
     }
-    .container {
+    /* .container {
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         height: auto;
+    } */
+
+    .container {
+        width: 432px;
     }
 
     form {
         display: flex;
         flex-direction: column;
-        width: 56%;
         justify-content: space-between;
     }
 
@@ -64,6 +68,24 @@ export default {
 
     form > div{
         margin-bottom: 24px;
+    }
+
+    .password-content{
+        width: 100%;
+        margin-bottom: 0px;
+        
+    }
+
+    form .btn-recovery {
+        width: 100%;
+        margin: 37px 0;
+        text-align: center;
+        text-transform: uppercase;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 22px;
     }
 
     form button {
@@ -84,16 +106,18 @@ export default {
         background: #FCD3B1;
         cursor: auto;
     }
+       
 
     .pure-material-textfield-outlined {
-    --pure-material-safari-helper1: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
-    position: relative;
-    display: inline-block;
-    padding-top: 6px;
-    font-family: "Open Sans", sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    overflow: hidden;
+        --pure-material-safari-helper1: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+        position: relative;
+        display: inline-block;
+        padding-top: 6px;
+        font-family: "Open Sans", sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        overflow: hidden;
+        user-select: none;
     }
 
     /* Input, Textarea */
@@ -173,6 +197,7 @@ export default {
     .pure-material-textfield-outlined:hover > textarea {
         border-color: #FF8822;
         border-top-color: transparent;
+        caret-color: #FF8822;
     }
 
     .pure-material-textfield-outlined:hover > input + span::before,

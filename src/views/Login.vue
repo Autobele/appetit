@@ -10,6 +10,7 @@
                 </div>
             </div>
             <Form/>
+            <p class="copyright">Infoway Gestão em Saúde ©, 2019.</p>
       </div>
   </div>
 </template>
@@ -36,6 +37,7 @@ export default {
   background: var(--bg-color-primary);
   width: 100%;
   height: 100vh;
+  position: relative;
 }
 
 .content {
@@ -44,6 +46,9 @@ export default {
     align-items: center;
     justify-content: center;
     margin-top: 4%;
+    width: 432px;
+    position: absolute;
+    top: 13.02%;
 }
 
 .content img {
@@ -56,6 +61,7 @@ export default {
     justify-content: space-between;
     flex-direction: column;
     margin-bottom: 40px;
+    width: 100%;
 }
 
 .greeting-heading {
@@ -81,7 +87,7 @@ export default {
 .subheading p {
     height: 48px;
     text-align: center;
-    width: 59%;
+    width: 100%;
     font-family: "Open Sans";
     font-style: normal;
     font-weight: normal;
@@ -90,6 +96,24 @@ export default {
 
     top: calc(50% - 48px / 2 - 88px);
     color: rgba(0, 0, 0, 0.54);
+}
+
+.copyright {
+    width: 432px;
+    height: 24px;
+    position: absolute;
+    height: 24px;
+    text-align: center;
+    top: calc(50% - 24px/2 + 332px);
+
+    /* Body */
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+
+    color: rgba(0, 0, 0, 0.56);
 }
 
 </style>
