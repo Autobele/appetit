@@ -43,17 +43,10 @@ export default {
         --pure-material-onsurface-rgb: #FF8822;
         --pure-material-primary-rgb: #FF8822;
     }
-    /* .container {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        height: auto;
-    } */
-
+    
     .container {
         width: 432px;
+        justify-content: center;
     }
 
     form {
