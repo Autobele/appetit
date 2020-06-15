@@ -10,8 +10,8 @@
                 </div>
             </div>
             <Form/>
-            <p class="copyright">Infoway Gestão em Saúde ©, 2019.</p>
       </div>
+            <p class="copyright">Infoway Gestão em Saúde ©, 2019.</p>
   </div>
 </template>
 
@@ -101,19 +101,22 @@ export default {
 .copyright {
     width: 432px;
     height: 24px;
-    position: absolute;
-    height: 24px;
     text-align: center;
-    top: calc(50% - 24px/2 + 332px);
 
-    /* Body */
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
     line-height: 24px;
 
-    color: rgba(0, 0, 0, 0.56);
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    
+    bottom: 40px;
+    color: rgba(0, 0, 0, 0.56); 
 }
 
 </style>
