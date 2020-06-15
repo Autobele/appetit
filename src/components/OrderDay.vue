@@ -1,16 +1,11 @@
 <template>
   <div class="orderDay">
-      <h6>{{dateSale}},<span> Você vendeu </span>{{valueSale}}</h6>
       <slot></slot>
   </div>
 </template>
 
 <script>
-
-// import Card from '@/components/Card.vue';
-
 export default {
-    props: ['dateSale', 'valueSale'],
 }
 </script>
 

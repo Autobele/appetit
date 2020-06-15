@@ -1,12 +1,10 @@
 <template>
-  <a href="/home">
     <div class="card">
         <img class="avatarUrl" :src="avatarUrl" alt="">
         <h6 class="clientName">{{clientName}}</h6>
         <caption class="description">{{description}}</caption>
         <h6 class="value" :class="hideElement(hideValue)">{{value}}</h6>
     </div>
-  </a>
 </template>
 
 <script>
