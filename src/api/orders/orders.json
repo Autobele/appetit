@@ -1,0 +1,57 @@
+[
+    {
+      "id": 1,
+      "dateSale": "13/05/2019",
+      "valueSale": 45.8,
+      "sale": [
+        {
+          "id": 1,
+          "name": "Marcel Batista",
+          "avatar_url": "https://svgshare.com/i/M2N.svg",
+          "date": "13/05/2019",
+          "description": "cuscuz com calabresa, suco de laranja",
+          "value": 3.5
+        },
+        {
+          "id": 2,
+          "date": "13/05/2019",
+          "name": "Fernanda Siqueira",
+          "avatar_url": "https://svgshare.com/i/M1J.svg",
+          "description": "Iorgute desnatado com maçã.",
+          "value": 7.9
+        },
+        {
+          "id": 3,
+          "name": "Luiz Oliveira",
+          "avatar_url": "https://svgshare.com/i/M2o.svg",
+          "date": "13/05/2019",
+          "description": "2x bolo frito, café c/ leite.",
+          "value": 4.5
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "dateSale": "09/05/2019",
+      "valueSale": 123.5,
+      "sale": [
+        {
+          "id": 3,
+          "name": "Ana Virlania",
+          "avatar_url": "https://svgshare.com/i/M41.svg",
+          "date": "13/05/2019",
+          "description": "2x sanduíche, vitamina de goiaba.",
+          "value": 5.0
+        },
+        {
+          "id": 2,
+          "name": "Marcel Batista",
+          "avatar_url": "https://svgshare.com/i/M2N.svg",
+          "date": "13/05/2019",
+          "description": "cuscuz com calabresa, suco de maracujá",
+          "value": 3.5
+        }
+      ]
+    }
+  ]
+  
