@@ -5,6 +5,7 @@ import Login from '@/views/Login.vue';
 import Home from '@/views/Home.vue';
 import SelectedSale from '@/views/SelectedSale.vue';
 import SelectProduct from '@/views/SelectProduct.vue';
+import DetailProduct from '@/views/DetailProduct.vue';
 
 Vue.use(Router);
 
@@ -28,7 +29,12 @@ const routes = [
         name: "select-product",
         path: '/select-product',
         component: SelectProduct
-    }
+    },
+    {
+        name: "detail-product",
+        path: '/detail-product/:categoryId/:productId',
+        component: DetailProduct
+    },
 ]
 
 const router = new Router({ routes, mode: 'history'});

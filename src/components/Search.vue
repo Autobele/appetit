@@ -4,12 +4,13 @@
           <div class="search_Content">
               <input type="search" name="" id="inputSearch" placeholder="Procurar o pedido aqui...">
           </div>
-          <a href=""><img src="@/assets/config.svg" alt="Search"></a>
+          <a href="" :class="{hidden: hideElement}"><img src="@/assets/config.svg" alt="Config"></a>
       </div>
 </template>
 
 <script>
 export default {
+    props: ['hideElement'],
     name: 'search'
 }
 </script>
@@ -41,6 +42,11 @@ export default {
         border: none;
 
         color: rgba(0, 0, 0, 0.54);
+    }
+
+    .hidden {
+        visibility: hidden;
+        -moz-user-select: none;
     }
 
     input[type=search]::-ms-clear {  display: none; width : 0; height: 0; }

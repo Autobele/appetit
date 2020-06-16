@@ -3,7 +3,7 @@
         <Sidebar class="sidebar"/>
         <Header class="header"/>
         <section class="openOrder">
-            <TitleSection hide-arrow="false"/>
+            <TitleSection hide-arrow="false" class="title"/>
             <OpenOrder>
             <router-link class="newRequest__Content" to="/select-product">
                 <div class="newRequest">
@@ -146,6 +146,7 @@ export default {
 
         color: rgba(0, 0, 0, 0.56);
     }
+
 
     /* MEDIA QUERY */
     @media (max-width: 723px) {

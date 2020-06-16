@@ -9,9 +9,9 @@
                     quanto isso pode ajudar no seu dia.</p>
                 </div>
             </div>
-            <Form/>
+            <Form class="form-login"/>
       </div>
-            <p class="copyright">Infoway Gestão em Saúde ©, 2019.</p>
+    <p class="copyright">Infoway Gestão em Saúde ©, 2019.</p>
   </div>
 </template>
 
@@ -111,10 +111,8 @@ export default {
 
     position: absolute;
     bottom: -40px;
-    left: 0;
     position: absolute;
     text-align: center;
-    
     bottom: 40px;
     color: rgba(0, 0, 0, 0.56); 
 }

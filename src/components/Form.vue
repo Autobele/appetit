@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="form-login">
       <form action="">
         <div>
             <label class="pure-material-textfield-outlined">
@@ -44,7 +44,7 @@ export default {
         --pure-material-primary-rgb: #FF8822;
     }
     
-    .container {
+    .form-login {
         width: 432px;
         justify-content: center;
     }

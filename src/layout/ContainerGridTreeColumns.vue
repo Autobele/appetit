@@ -16,12 +16,10 @@ export default {
         padding: 0;
         display: grid;
         grid-template-columns: 342px 1fr 1fr;
-        grid-template-rows: 72px auto;
+        grid-template-rows: auto;
         grid-template-areas: 
-            "sidebar middleSection header"
-            "sidebar midleSection infoSection"
+            "sidebar middleSection infoSection"
         ;
-        position: relative;
     }
 
     .header{
@@ -44,9 +42,8 @@ export default {
         padding: 0;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 72px 1fr;
+        grid-template-rows: auto;
         grid-template-areas: 
-            "middleSection header"
             "middleSection infoSection"
         ;
     }
@@ -66,7 +63,7 @@ export default {
     }
 
     /* MEDIA QUERY */
-    @media (max-width: 723px) {
+    @media (max-width: 750px) {
     .column-3 {
         margin: 0;
         padding: 0;

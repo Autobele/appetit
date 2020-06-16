@@ -9,28 +9,16 @@
       </section>
       <section class="infoSection">
           <Header class="header"/>
-            <TitleSection currentMessage="Informações para o pedido" hideArrow="true" class="title"/>
+            <TitleSection currentMessage="Detalhes do pedido" hideArrow="true" class="title"/>
           <div class="infoSectionContent">
-              <p class="info">Preencha as informações abaixo para concluir esta venda.</p>
-              <div class="progress-content">
-                <p>Passo 1 de 3</p>
-                <ProgressBar progress="33" class="progress-component"/>
+              <p class="info">Aproveite para adicionar alguma observação para este pedido, caso queira.</p>
+              <div class="product-detail">
+                  <img src="@/assets/cuscuzcompleto.svg" alt="">
+                  <div class="product-heading">
+                      <h6 class="product-title">Cuscuz Completo</h6>
+                      <span class="product-price">R$ 3,25</span>
+                  </div>
               </div>
-          </div>
-          <div class="produtos__Content">
-              <h6>O que você está vendendo?</h6>
-              <Search hide-element="true"/>
-              <div class="separator-gray"></div>
-            <section class="product-select" v-for="(product, index) in products" :key="index">
-                <h6>{{product.title}}</h6>
-                <router-link :to="{ name: 'detail-product', params: { categoryId: product.id, productId: card.id }}" v-for="(card, index) in product.items" :key="index">
-                    <CardProduct
-                        :image-url="card.productImage"
-                        :name="card.name"
-                        :price="valueFormatPtBR(card.price)"
-                    />
-                </router-link>
-            </section>
           </div>
       </section>
   </GridTreeColumns>
@@ -42,21 +30,15 @@ import GridTreeColumns from '@/layout/ContainerGridTreeColumns';
 import Sidebar from '@/components/Sidebar';
 import Header from '@/components/Header';
 import TitleSection from '@/components/TitleSection';
-import ProgressBar from '@/components/ProgressBar';
-import Search from '@/components/Search';
-import CardProduct from '@/components/CardProduct';
 import apiProducts from '@/api/products/products.json';
 
 export default {
-    name: 'select-product',
+    name: 'detail-product',
     components: {
         GridTreeColumns,
         Sidebar,
         Header,
         TitleSection,
-        ProgressBar,
-        Search,
-        CardProduct,
     },
     data() {
         return {
@@ -128,21 +110,6 @@ export default {
         color: rgba(0, 0, 0, 0.56);;
     }
 
-    .progress-content p{
-        width: 94px;
-        height: 24px;
-        top: 246px;
-        /* Body */
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: normal;
-        font-size: 16px;
-        line-height: 24px;
-        /* identical to box height, or 150% */
-        color: rgba(0, 0, 0, 0.64);
-        margin-bottom: 8px;
-    }
-
     .infoSection h6 {
         font-family: 'Open Sans';
         font-style: normal;
@@ -153,15 +120,36 @@ export default {
         margin: 24px 0;
     }
 
-    .separator-gray{
-        width: 100%;
-        height: 1px;
-        margin-top: 8px;
-
-        background: rgba(0, 0, 0, 0.34);
+    .product-detail {
+        display: flex;
+        align-items: center;
+        margin-bottom: 24px;
+        height: 48px;
     }
 
-    .produtos__Content {
-        padding: 0 40px;
+    .product-detail img {
+        margin-right: 16px;
     }
+
+   .product-detail h6 {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        /* identical to box height, or 150% */
+        margin: 0px;
+        color: rgba(0, 0, 0, 0.87);
+   }
+
+   .product-detail p {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+
+        color: rgba(0, 0, 0, 0.54);
+   }
+
+
 </style>

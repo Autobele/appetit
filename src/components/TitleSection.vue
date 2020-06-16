@@ -1,6 +1,6 @@
 <template>
   <div class="titleSection">
-      <a href="/home"><img src="@/assets/arrow-left.svg" class="btnArrow" :class="hideElement(hideArrow)" alt=""></a>
+      <a href="/home"><img src="@/assets/arrow-left.svg" class="btnArrow" :class="{hidden: hideArrow}" alt=""></a>
       <h3>{{currentMessage ? currentMessage : 'Olá Vanussa' }}</h3>
       <div class="separator"></div>
   </div>
@@ -11,7 +11,7 @@ export default {
     props: ['hideArrow', 'currentMessage'],
     methods: {
         hideElement(params) {
-            return params ? 'hide' : ''
+            return params ? '{visibility : hidden}' : '{visibility: visibility}'
         }
     }
 }
@@ -48,8 +48,9 @@ export default {
         background-color: #FF8822;
     }
 
-    .hide {
-        display: none;
+    .hidden {
+        visibility: hidden;
+        -moz-user-select: none;
     }
 
 </style>
