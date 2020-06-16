@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="column-2">
       <slot></slot>
   </div>
 </template>
@@ -11,7 +11,7 @@ export default {
 </script>
 
 <style>
-    .container {
+    .column-2 {
         margin: 0;
         padding: 0;
         display: grid;
@@ -33,10 +33,14 @@ export default {
         grid-area: openOrder;
     }
 
+    slot {
+        width: 100%;
+        height: 100%;
+    }
 
     /* MEDIA QUERY */
     @media (max-width: 723px) {
-    .container {
+    .column-2 {
         margin: 0;
         padding: 0;
         display: grid;

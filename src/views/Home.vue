@@ -5,12 +5,12 @@
         <section class="openOrder">
             <TitleSection hide-arrow="false"/>
             <OpenOrder>
-            <a class="newRequest__Content" href="/home">
+            <router-link class="newRequest__Content" to="/select-product">
                 <div class="newRequest">
                     <div href=""><img src="@/assets/add.png" alt="Add Logo">
                     <span>fazer novo pedido</span></div>
                 </div>
-            </a>
+            </router-link>
             <Search/>
             <div class="separator"></div>
             <OrderDay v-for="(order, index) in orders" :key="order[index]">

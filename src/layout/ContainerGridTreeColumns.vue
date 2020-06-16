@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="column-3">
       <slot></slot>
   </div>
 </template>
@@ -11,16 +11,17 @@ export default {
 </script>
 
 <style>
-    .container {
+    .column-3 {
         margin: 0;
         padding: 0;
         display: grid;
-        grid-template-columns: 342px auto;
+        grid-template-columns: 342px 1fr 1fr;
         grid-template-rows: 72px auto;
         grid-template-areas: 
-            "sidebar header"
-            "sidebar openOrder"
+            "sidebar middleSection header"
+            "sidebar midleSection infoSection"
         ;
+        position: relative;
     }
 
     .header{
@@ -29,33 +30,67 @@ export default {
     .sidebar {
         grid-area: sidebar;
     }
-    .openOrder {
-        grid-area: openOrder;
+    .middleSection {
+        grid-area: middleSection;
+    }
+    .infoSection {
+        grid-area: infoSection;
     }
 
-
-    /* MEDIA QUERY */
-    @media (max-width: 723px) {
-    .container {
+    
+    @media (max-width: 1058px) {
+    .column-3 {
         margin: 0;
         padding: 0;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 72px auto;
+        grid-template-rows: 72px 1fr;
         grid-template-areas: 
-            "header header"
-            "openOrder openOrder"
+            "middleSection header"
+            "middleSection infoSection"
         ;
     }
 
-    .header{
-        grid-area: header;
+    .header {
+        display: header
     }
     .sidebar {
         display: none;
     }
-    .openOrder {
-        grid-area: openOrder;
+    .middleSection {
+        display: middleSection;
     }
+    .infoSection {
+        grid-area: infoSection;
+    }
+    }
+
+    /* MEDIA QUERY */
+    @media (max-width: 723px) {
+    .column-3 {
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: 
+            "infoSection"
+            "infoSection"
+        ;
+    }
+
+    .header {
+        display: none
+    }
+    .sidebar {
+        display: none;
+    }
+    .middleSection {
+        display: none
+    }
+    .infoSection {
+        grid-area: infoSection;
+    }
+
     }
 </style>

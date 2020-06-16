@@ -1,14 +1,14 @@
 <template>
   <div class="titleSection">
       <a href="/home"><img src="@/assets/arrow-left.svg" class="btnArrow" :class="hideElement(hideArrow)" alt=""></a>
-      <h3>{{userCurrent ? userCurrent : 'Olá Vanussa' }}</h3>
+      <h3>{{currentMessage ? currentMessage : 'Olá Vanussa' }}</h3>
       <div class="separator"></div>
   </div>
 </template>
 
 <script>
 export default {
-    props: ['hideArrow', 'userCurrent'],
+    props: ['hideArrow', 'currentMessage'],
     methods: {
         hideElement(params) {
             return params ? 'hide' : ''
@@ -22,11 +22,11 @@ export default {
     .titleSection {
         padding: 0;
         margin-left: 40px;
+        position: relative;
     }
 
     .titleSection h3{ 
         margin-bottom: 8px;
-
         font-family: 'Open Sans';
         font-style: normal;
         font-weight: normal;
