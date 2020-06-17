@@ -4,7 +4,16 @@
       <section class="middleSection" >
           <div class="newOrder__Content">
             <TitleSection currentMessage="Novo Pedido" class="title" url-arrow="/home"/>
-            <img src="@/assets/newOrder.svg" class="undraw-chef" alt="">
+            <div class="ordersale-info">
+                <div class="product-info">
+                    <h4 class="product-title">Produtos</h4>
+                    <div class="product-card">
+                        <!-- <img :src="orderSale.product.imageUrl" alt="">
+                        <h6>{{orderSale.amount}}x {{orderSale.product.name}}</h6>
+                        <p>{{valueFormatPtBR(orderSale.product.price)}}</p> -->
+                    </div>
+                </div>
+            </div>
           </div>
       </section>
       <section class="infoSection">
@@ -13,40 +22,29 @@
           <div class="infoSectionContent">
               <p class="info">Preencha as informações abaixo para concluir esta venda.</p>
               <div class="progress-content">
-                <p>Passo 1 de 3</p>
-                <ProgressBar progress="33" class="progress-component"/>
+                <p>Passo 2 de 3</p>
+                <ProgressBar progress="66" class="progress-component"/>
               </div>
           </div>
           <div class="product__Content">
-              <h6 class="info">O que você está vendendo?</h6>
+              <h6 class="info">Pra quem você está vendendo?</h6>
               <div class="search-content">
-                <Search hide-element="true" bgcolor="#FAFAFA" class="searchInput"/>
+                <Search hide-element="true" bgcolor="#FAFAFA" class="searchInput" plholder="Procurar o cliente aqui..."/>
                 <div class="separator-gray"></div>
               </div>
-            <div class="productScroll">
-                <div class="product-select" v-for="(product, productIndex) in products" :key="productIndex">
-                <div class="product">
-                    <h6 class="category-title">{{product.title}}</h6>
-                    <router-link  :to="{ name: 'detail-product', params: { categoryId: product.id, productId: card.id }}" v-for="(card, cardIndex) in product.items" :key="cardIndex">
-                        <CardProduct
-                            :image-url="(selectedProduct.categoryId == productIndex && selectedProduct.productId == cardIndex) ? checkedProductImage : card.imageUrl"
-                            :name="card.name"
-                            :price="valueFormatPtBR(card.price)"
-                            class="card-product"
-                        />
-                        <div class="separator-card"></div>
-                    </router-link>
-                </div>
-                <div class="separator-product-select"></div>
-                </div>
+          </div>
+            <div class="clientScroll">
+                <div class="clients_container">
+                    <div class="client-card" v-for="(client, index) in clients" :key="index">
+                        <img :src="client.avatar" alt="">
+                        <h6 class="client-name">{{client.name}}</h6>
+                    </div>
             </div>
           </div>
-              <div class="submit-order_Content" v-if="this.orderSale">
-                <h6 class="valueInfo">Total: {{this.orderSale.totalValue != undefined ? valueFormatPtBR(this.orderSale.totalValue) : '' }}</h6>
-          <router-link :to="{ name: 'select-client', params: { orderSale }}">
-                <a class="avancar"><p>Avançar</p><img src="@/assets/arrow-right.svg"></a>
-          </router-link>
-            </div>
+          <div class="submit-order_Content" v-if="this.orderSale">
+              <h6 class="valueInfo">Total: {{this.orderSale.totalValue != undefined ? valueFormatPtBR(this.orderSale.totalValue) : '' }}</h6>
+              <a class="avancar"><p>Avançar</p><img src="@/assets/arrow-right.svg"></a>
+          </div>
       </section>
   </GridTreeColumns>
 </template>
@@ -59,11 +57,10 @@ import Header from '@/components/Header';
 import TitleSection from '@/components/TitleSection';
 import ProgressBar from '@/components/ProgressBar';
 import Search from '@/components/Search';
-import CardProduct from '@/components/CardProduct';
-import apiProducts from '@/api/products/products.json';
+import apiClients from '@/api/clients/clients.json';
 
 export default {
-    name: 'select-product',
+    name: 'select-client',
     components: {
         GridTreeColumns,
         Sidebar,
@@ -71,25 +68,28 @@ export default {
         TitleSection,
         ProgressBar,
         Search,
-        CardProduct,
     },
     data() {
         return {
-            products: [],
             orders: {},
             orderSale: null,
+            clients: null,
+            selectedClients: [],
             selectedProduct: { categoryId: null, productId: null },
             checkedProductImage: require("@/assets/checked-product.svg")
         }
     },
     created() {
-        this.products = apiProducts;
+        this.clients = apiClients;
         this.orderSale = this.$route.params.orderSale;
         if(this.$route.params.categoryId != undefined && this.$route.params.productId !== undefined) {
             this.selectedProduct.categoryId = this.$route.params.categoryId
             this.selectedProduct.productId = this.$route.params.productId
-        } 
-        console.log(this.orderSale);
+        }
+
+        if(this.$route.params.orderSale == undefined) {
+            this.$router.push('/select-client');
+        }
     },
     methods: {
         valueFormatPtBR(value){
@@ -144,7 +144,7 @@ export default {
         font-weight: normal;
         font-size: 16px;
         line-height: 24px;
-        color: rgba(0, 0, 0, 0.56);;
+        color: rgba(0, 0, 0, 0.56);
     }
     .progress-content {
         margin: 0 40px;
@@ -163,12 +163,12 @@ export default {
         margin-bottom: 8px;
     }
 
-    .productScroll {
+    .clientScroll {
         overflow-y: scroll;
         height: 50vh;
     }
 
-    .productScroll::-webkit-scrollbar {
+    .clientScroll::-webkit-scrollbar {
         display: none;
     }
     
@@ -191,13 +191,6 @@ export default {
 
     .product__Content h6, .search-content{
         padding: 0 40px;
-    }
-
-    .separator-product-select {
-        width: 100%;
-        height: 8px;
-        background: rgba(0, 0, 0, 0.08);
-        margin-top: 8px;
     }
 
     .card-product:last-child{
@@ -255,7 +248,7 @@ export default {
     }
 
     .avancar p {
-        font-family: Open Sans;
+        font-family: 'Open Sans';
         font-style: normal;
         font-weight: 600;
         font-size: 16px;
@@ -276,6 +269,51 @@ export default {
         width: 100%;
         position: absolute;
         top: 174px;
+        padding: 0 40px;
+    }
+
+    .product-card {
+        margin: 16px 40px;
+    }
+
+    .product-title {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 30px;
+        margin-left: 40px;
+        color: rgba(0, 0, 0, 0.88);
+    }
+
+    .product-info .product-card {
+        display: flex;
+        align-items: center;
+    }
+
+    .product-info .product-card img {
+        margin-right: 16px;
+    }
+
+    .product-info .product-card h6{
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        color: rgba(0, 0, 0, 0.87);
+    }
+
+    .product-info .product-card p {
+        margin-left: auto;
+    }
+
+    .client-card {
+        display: flex;
+        margin: 16px 40px;
+    }
+
+    .client-card .client-name {
+        margin-left: 16px;
     }
 
 </style>

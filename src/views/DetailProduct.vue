@@ -47,10 +47,12 @@
           <p>{{amount}}</p>
           <img src="@/assets/add.svg" alt="add" @click="choiceAmount('plus')" />
         </div>
-        <a class="btn-add-order">
-          <p>Adicionar</p>
-          <p>{{valueFormatPtBR(totalValue)}}</p>
-        </a>
+        <router-link :to="{name: 'select-product/sale', params: { orderSale: orderSale, categoryId, productId  }}">
+          <a class="btn-add-order" @click="mountSale">
+            <p>Adicionar</p>
+            <p>{{valueFormatPtBR(totalValue)}}</p>
+          </a>
+        </router-link>
       </div>
     </section>
   </GridTreeColumns>
@@ -79,6 +81,7 @@ export default {
       product: {},
       amount: 1,
       totalValue: 0,
+      orderSale: {},
       observations: "",
       checkedRadio: null,
       image: {
@@ -113,6 +116,15 @@ export default {
         this.amount++;
       }
       this.totalValue = this.product.price * this.amount;
+    },
+    mountSale() {
+      this.orderSale = {
+        product: this.product,
+        amount: this.amount,
+        observations: this.observations,
+        optionChoice: this.checkedRadio,
+        totalValue: this.totalValue
+      }
     }
   }
 };

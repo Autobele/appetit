@@ -30,11 +30,9 @@ export default {
     }
     .middleSection {
         grid-area: middleSection;
-        height: 100vh;
     }
     .infoSection {
         grid-area: infoSection;
-        height: 100vh;
     }
 
     

@@ -2,7 +2,7 @@
   <div class="search__Wrapper">
           <a href=""><img src="@/assets/search.svg" alt="Search"></a>
           <div class="search_Content">
-              <input type="search" :class="{bgcolor: bgcolor}" id="inputSearch" placeholder="Procurar o pedido aqui...">
+              <input type="search" :class="{bgcolor: bgcolor}" id="inputSearch" :placeholder="plholder ? plholder : 'Procurar o pedido aqui...'">
           </div>
           <a href="" :class="{hidden: hideElement}"><img src="@/assets/config.svg" alt="Config"></a>
       </div>
@@ -10,7 +10,7 @@
 
 <script>
 export default {
-    props: ['hideElement', 'bgcolor'],
+    props: ['hideElement', 'bgcolor', 'plholder'],
     name: 'search'
 }
 </script>
