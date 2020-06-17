@@ -30,6 +30,7 @@ export default {
     }
     .middleSection {
         grid-area: middleSection;
+        position: fixed;
     }
     .infoSection {
         grid-area: infoSection;

@@ -3,7 +3,7 @@
       <Sidebar class="sidebar"/>
       <section class="middleSection">
           <div class="newOrder__Content">
-            <TitleSection currentMessage="Novo Pedido" class="title"/>
+            <TitleSection currentMessage="Novo Pedido" class="title" url-arrow="/home"/>
             <img src="@/assets/newOrder.svg" class="undraw-chef" alt="">
           </div>
       </section>
@@ -17,19 +17,25 @@
                 <ProgressBar progress="33" class="progress-component"/>
               </div>
           </div>
-          <div class="produtos__Content">
+          <div class="product__Content">
               <h6>O que você está vendendo?</h6>
-              <Search hide-element="true"/>
-              <div class="separator-gray"></div>
+              <div class="search-content">
+                <Search hide-element="true" bgcolor="#FAFAFA" class="searchInput"/>
+                <div class="separator-gray"></div>
+              </div>
             <section class="product-select" v-for="(product, index) in products" :key="index">
-                <h6>{{product.title}}</h6>
-                <router-link :to="{ name: 'detail-product', params: { categoryId: product.id, productId: card.id }}" v-for="(card, index) in product.items" :key="index">
-                    <CardProduct
-                        :image-url="card.productImage"
-                        :name="card.name"
-                        :price="valueFormatPtBR(card.price)"
-                    />
-                </router-link>
+                <div class="product">
+                    <h6 class="category-title">{{product.title}}</h6>
+                    <router-link  :to="{ name: 'detail-product', params: { categoryId: product.id, productId: card.id }}" v-for="(card, index) in product.items" :key="index">
+                        <CardProduct
+                            :image-url="card.imageUrl"
+                            :name="card.name"
+                            :price="valueFormatPtBR(card.price)"
+                            class="card-product"
+                        />
+                    </router-link>
+                </div>
+                <div class="separator-product-select"></div>
             </section>
           </div>
       </section>
@@ -97,6 +103,7 @@ export default {
     .infoSection {
         width: 100%;
         height: 100%;
+        background: #FAFAFA;
     }
 
     .header {
@@ -114,17 +121,11 @@ export default {
         height: 48px;
         top: 174px;
         margin: 24px 0;
-        /* Body */
-
         font-family: 'Open Sans';
         font-style: normal;
         font-weight: normal;
         font-size: 16px;
         line-height: 24px;
-        /* or 150% */
-
-        /* Black 0.56% */
-
         color: rgba(0, 0, 0, 0.56);;
     }
 
@@ -132,18 +133,16 @@ export default {
         width: 94px;
         height: 24px;
         top: 246px;
-        /* Body */
         font-family: 'Open Sans';
         font-style: normal;
         font-weight: normal;
         font-size: 16px;
         line-height: 24px;
-        /* identical to box height, or 150% */
         color: rgba(0, 0, 0, 0.64);
         margin-bottom: 8px;
     }
 
-    .infoSection h6 {
+    .product__Content > h6 {
         font-family: 'Open Sans';
         font-style: normal;
         font-weight: 600;
@@ -157,11 +156,35 @@ export default {
         width: 100%;
         height: 1px;
         margin-top: 8px;
-
         background: rgba(0, 0, 0, 0.34);
     }
 
-    .produtos__Content {
+    .product__Content h6, .search-content{
         padding: 0 40px;
     }
+
+    .separator-product-select {
+        width: 100%;
+        height: 8px;
+        background: rgba(0, 0, 0, 0.08);
+        margin-top: 8px;
+    }
+
+    .product {
+        margin-top: 24px;
+    }
+
+    .product .card-product {
+        margin-left: 56px;
+        margin-right: 40px;
+    }
+
+    .product .category-title{
+        margin: 0px;
+    }
+
+    .product-select:last-child > .separator-product-select {
+        display: none;
+    }
+
 </style>

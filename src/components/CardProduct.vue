@@ -18,10 +18,7 @@ export default {
         display: flex;
         align-items: center;
     }
-    .product_card__Content img{
-        margin: 16px;
-    }
-
+    
     .product_card__Content h6 {
         font-family: 'Open Sans';
         font-style: normal;

@@ -1,13 +1,13 @@
 [
   {
-    "category": 0,
+    "id": 0,
     "title": "Cuscuz",
     "items": [
       {
         "id": 0,
         "name": "Cuscuz Simples",
         "price": 2.25,
-        "productImage": "https://svgshare.com/i/KnJ.svg",
+        "imageUrl": "https://svgshare.com/i/KnJ.svg",
         "options": [
           {
             "id": 0,
@@ -23,7 +23,7 @@
         "id": 1,
         "name": "Cuscuz Completo",
         "price": 3.75,
-        "productImage": "https://svgshare.com/i/KmS.svg",
+        "imageUrl": "https://svgshare.com/i/KmS.svg",
         "options": [
           {
             "id": 0,
@@ -38,14 +38,14 @@
     ]
   },
   {
-    "category": 1,
+    "id": 1,
     "title": "Pães",
     "items": [
       {
         "id": 0,
         "name": "Pão caseiro",
-        "price": 2.25,
-        "productImage": "https://svgshare.com/i/Kka.svg",
+        "price": 3.25,
+        "imageUrl": "https://svgshare.com/i/Kka.svg",
         "options": [
           {
             "id": 0,
@@ -60,8 +60,8 @@
       {
         "id": 1,
         "name": "Pão caseiro completo",
-        "price": 2.25,
-        "productImage": "https://svgshare.com/i/Kne.svg",
+        "price": 4.85,
+        "imageUrl": "https://svgshare.com/i/Kne.svg",
         "options": [
           {
             "id": 0,
@@ -70,6 +70,44 @@
           {
             "id": 1,
             "name": "9 Grãos"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Pizza",
+    "items": [
+      {
+        "id": 0,
+        "name": "Pizza Tradicional",
+        "price": 3.25,
+        "imageUrl": "https://svgshare.com/i/Kka.svg",
+        "options": [
+          {
+            "id": 0,
+            "name": "Calabresa"
+          },
+          {
+            "id": 1,
+            "name": "4 Queijos"
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "name": "Pizza Especial",
+        "price": 4.85,
+        "imageUrl": "https://svgshare.com/i/Kne.svg",
+        "options": [
+          {
+            "id": 0,
+            "name": "Camarão"
+          },
+          {
+            "id": 1,
+            "name": "Especial"
           }
         ]
       }

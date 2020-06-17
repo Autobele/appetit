@@ -1,6 +1,6 @@
 <template>
   <div class="titleSection">
-      <a href="/home"><img src="@/assets/arrow-left.svg" class="btnArrow" :class="{hidden: hideArrow}" alt=""></a>
+      <a :href="urlArrow"><img src="@/assets/arrow-left.svg" class="btnArrow" :class="{hidden: hideArrow}" alt=""></a>
       <h3>{{currentMessage ? currentMessage : 'Olá Vanussa' }}</h3>
       <div class="separator"></div>
   </div>
@@ -8,7 +8,7 @@
 
 <script>
 export default {
-    props: ['hideArrow', 'currentMessage'],
+    props: ['hideArrow', 'currentMessage', 'urlArrow'],
     methods: {
         hideElement(params) {
             return params ? '{visibility : hidden}' : '{visibility: visibility}'
@@ -50,7 +50,15 @@ export default {
 
     .hidden {
         visibility: hidden;
-        -moz-user-select: none;
     }
 
+    /* @media (max-width: 723px) {
+        .titleSection {
+            margin-top: 72px;
+        }
+        .btnArrow {
+            visibility: visible;
+            opacity: 1;
+        }
+    } */
 </style>

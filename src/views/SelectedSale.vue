@@ -3,7 +3,7 @@
         <Sidebar class="sidebar"/>
         <Header class="header"/>
         <div class="openOrder">
-            <TitleSection :currentMessage="`Pedidos de ${orders.name.split(' ')[0]}`"/>
+            <TitleSection :currentMessage="`Pedidos de ${orders.name.split(' ')[0]}`" urlArrow="/home"/>
             <OpenOrder>
                 <OrderDay>
                     <router-link :to="{ name: 'selected-sale'}">
