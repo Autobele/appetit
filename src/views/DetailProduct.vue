@@ -21,16 +21,36 @@
         </div>
         <div class="options">
           <h6>Opções</h6>
-          <p>Escolha dentre as opções de massas abaixo</p>
+          <p class="option-info">Escolha dentre as opções de massas abaixo</p>
           <div class="choice" v-for="(option, index) in product.options" :key="index">
             <label>
-              <input type="radio" name="ingrediente" :value="option.name" checked />
-              <img :src="require('@/assets/radio-path.svg')" />
+              <input type="radio" name="ingrediente" @change="onChange($event)" :value="option.id" />
+              <img :src="checkedRadio == option.id ? image.checked : image.unchecked" />
             </label>
             <p>{{option.name}}</p>
           </div>
         </div>
-        <div class="separator-sec"></div>
+        <div class="observations">
+          <h6>Observações</h6>
+          <input
+            type="text"
+            name="observations"
+            v-model="observations"
+            id="input-observations"
+            placeholder="Observações"
+          />
+        </div>
+      </div>
+      <div class="amount-product_Container" v-show="this.checkedRadio">
+        <div class="amount-buttons">
+          <img src="@/assets/minus.svg" alt="minus" @click="choiceAmount('minus')" />
+          <p>{{amount}}</p>
+          <img src="@/assets/add.svg" alt="add" @click="choiceAmount('plus')" />
+        </div>
+        <a class="btn-add-order">
+          <p>Adicionar</p>
+          <p>{{valueFormatPtBR(totalValue)}}</p>
+        </a>
       </div>
     </section>
   </GridTreeColumns>
@@ -57,9 +77,13 @@ export default {
       productId: 0,
       products: {},
       product: {},
+      amount: 1,
+      totalValue: 0,
+      observations: "",
+      checkedRadio: null,
       image: {
-        unchecked: '@/assets/radio-path.svg',
-        checked: "@/assets/check-path.svg"
+        unchecked: require("@/assets/radio-path.svg"),
+        checked: require("@/assets/check-path.svg")
       }
     };
   },
@@ -67,13 +91,28 @@ export default {
     this.categoryId = this.$route.params.categoryId;
     this.productId = this.$route.params.productId;
     this.product = apiProducts[this.categoryId].items[this.productId];
+    this.totalValue = this.product.price;
   },
+
   methods: {
     valueFormatPtBR(value) {
       return new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL"
       }).format(value);
+    },
+    onChange(event) {
+      let optionText = event.target.value;
+      this.checkedRadio = optionText;
+    },
+    choiceAmount(params) {
+      if (params == "minus") {
+        if (this.amount == 1) return;
+        this.amount--;
+      } else {
+        this.amount++;
+      }
+      this.totalValue = this.product.price * this.amount;
     }
   }
 };
@@ -83,7 +122,6 @@ export default {
 .middleSection {
   width: 100%;
   height: 100vh;
-  position: relative;
 }
 
 .middleSection .title {
@@ -100,24 +138,19 @@ export default {
 
 .infoSection {
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
 .header {
   position: fixed;
 }
 
-.infoSectionContent {
-  padding: 0 40px;
-  width: 100%;
-  display: flex;
-  position: sticky;
-  flex-direction: column;
-}
 .infoSectionContent .info {
   height: 48px;
-  top: 174px;
-  margin: 24px 0;
+  margin: 24px 40px;
   font-family: "Open Sans";
   font-style: normal;
   font-weight: normal;
@@ -133,7 +166,7 @@ export default {
   font-size: 16px;
   line-height: 24px;
   color: rgba(0, 0, 0, 0.88);
-  margin: 24px 0;
+  margin: 24px 40px;
 }
 
 .product-detail {
@@ -141,6 +174,8 @@ export default {
   align-items: center;
   margin-bottom: 24px;
   height: 48px;
+  margin-left: 40px;
+  margin-right: 40px;
 }
 
 .product-detail img {
@@ -166,6 +201,10 @@ export default {
   color: rgba(0, 0, 0, 0.54);
 }
 
+.options {
+  border-bottom: 8px solid rgba(0, 0, 0, 0.08);
+}
+
 .options h6 {
   font-family: "Open Sans";
   font-style: normal;
@@ -173,6 +212,10 @@ export default {
   font-size: 16px;
   line-height: 24px;
   color: rgba(0, 0, 0, 0.87);
+}
+
+.options .option-info {
+  margin: 0 40px;
 }
 
 .options p {
@@ -187,10 +230,10 @@ export default {
 .choice {
   width: 432px;
   height: 56px;
+  margin: 16px 40px;
   background: #ffffff;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
-  margin: 16px 0;
   display: flex;
   align-items: center;
 }
@@ -207,8 +250,96 @@ export default {
   line-height: 24px;
   color: rgba(0, 0, 0, 0.56);
 }
+.choice:last-child {
+  margin-bottom: 24px;
+}
 
-/* HIDE RADIO */
+.observations {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.observations h6 {
+  margin: 24px 0;
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.87);
+  margin-left: 40px;
+}
+
+.observations #input-observations {
+  width: 432px;
+  height: 56px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.56);
+  box-sizing: border-box;
+  border-radius: 5px;
+  padding: 16px;
+  margin-left: 40px;
+}
+
+.observations #input-observations::placeholder {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(0, 0, 0, 0.88);
+}
+
+.amount-product_Container {
+  width: 100%;
+  height: 68px;
+  background: #fafafa;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.amount-buttons {
+  width: 104px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 22px 22px 22px 40px;
+}
+
+.amount-buttons img {
+  cursor: pointer;
+}
+
+.btn-add-order {
+  width: 203px;
+  height: 48px;
+  background: #ff8822;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.btn-add-order p {
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  color: #ffffff;
+}
+
 [type="radio"] {
   position: absolute;
   opacity: 0;
@@ -216,7 +347,6 @@ export default {
   height: 0;
 }
 
-/* IMAGE STYLES */
 [type="radio"] + img {
   cursor: pointer;
 }

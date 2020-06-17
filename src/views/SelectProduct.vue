@@ -23,7 +23,8 @@
                 <Search hide-element="true" bgcolor="#FAFAFA" class="searchInput"/>
                 <div class="separator-gray"></div>
               </div>
-            <section class="product-select" v-for="(product, index) in products" :key="index">
+            <div class="productScroll">
+                <div class="product-select" v-for="(product, index) in products" :key="index">
                 <div class="product">
                     <h6 class="category-title">{{product.title}}</h6>
                     <router-link  :to="{ name: 'detail-product', params: { categoryId: product.id, productId: card.id }}" v-for="(card, index) in product.items" :key="index">
@@ -36,7 +37,12 @@
                     </router-link>
                 </div>
                 <div class="separator-product-select"></div>
-            </section>
+                </div>
+            </div>
+          </div>
+          <div class="submit-order_Content">
+              <p>Total R$ 3,25</p>
+              <a class="avancar"><p>Avançar</p><img src="@/assets/arrow-right.svg"></a>
           </div>
       </section>
   </GridTreeColumns>
@@ -84,7 +90,7 @@ export default {
 <style>
     .middleSection  {
         width: 100%;
-        height: 100vh;
+        max-height: 100vh;
         position: relative;
     }
 
@@ -102,8 +108,9 @@ export default {
 
     .infoSection {
         width: 100%;
-        height: 100%;
         background: #FAFAFA;
+        position: relative;
+        max-height: 100vh;
     }
 
     .header {
@@ -111,22 +118,23 @@ export default {
     }
 
     .infoSectionContent {
-        padding: 0 40px;
         width: 100%;
         display: flex;
-        position: sticky;
         flex-direction: column;
     }
     .infoSectionContent .info {
         height: 48px;
         top: 174px;
-        margin: 24px 0;
+        margin: 24px 40px;
         font-family: 'Open Sans';
         font-style: normal;
         font-weight: normal;
         font-size: 16px;
         line-height: 24px;
         color: rgba(0, 0, 0, 0.56);;
+    }
+    .progress-content {
+        margin: 0 40px;
     }
 
     .progress-content p{
@@ -140,6 +148,15 @@ export default {
         line-height: 24px;
         color: rgba(0, 0, 0, 0.64);
         margin-bottom: 8px;
+    }
+
+    .productScroll {
+        overflow-y: scroll;
+        height: 50vh;
+    }
+
+    .productScroll::-webkit-scrollbar {
+        background: transparent;
     }
 
     .product__Content > h6 {
@@ -185,6 +202,28 @@ export default {
 
     .product-select:last-child > .separator-product-select {
         display: none;
+    }
+
+    .submit-order_Content {
+        position: absolute;
+        bottom: 0px;
+        z-index: 1;
+        width: 100%;
+        height: 56px;
+        background: #FF8822;
+        box-shadow: 0px -2px 2px rgba(0, 0, 0, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 40px;
+    }
+
+    .submit-order_Content .avancar {
+        display: flex;
+    }
+
+    .avancar img {
+        margin-left: 24px;
     }
 
 </style>
