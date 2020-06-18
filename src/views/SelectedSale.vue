@@ -53,7 +53,6 @@ export default {
         this.orderId = this.$route.params.orderId;
         this.saleId = this.$route.params.saleId;
         this.orders = apiOrders[this.orderId].sale[this.saleId]
-        console.log(this.orders)
     }
 }
 </script>

@@ -89,7 +89,6 @@ export default {
             this.selectedProduct.categoryId = this.$route.params.categoryId
             this.selectedProduct.productId = this.$route.params.productId
         } 
-        console.log(this.orderSale);
     },
     methods: {
         valueFormatPtBR(value){
