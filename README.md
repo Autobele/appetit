@@ -44,8 +44,8 @@ Para clonar o projeto e executar, se faz necessários as instalações abaixo:
 
 1. Abra o terminal do seu computador powershell ou shell linux
 2. Altere o diretório de trabalho atual para o local em que deseja ter o código do módulo salvo no seu computador.
-3. Faça um clone desse repositório rodando: <br> `git clone https://github.com/Autobele/appetit.git`;
-4. Entre na pasta rodando pelo terminal: `cd appetit`;
+3. Faça um clone desse repositório rodando: <br> `git clone https://github.com/Autobele/appetit.git`
+4. Entre na pasta rodando pelo terminal: `cd appetit`
 5. Rode `npm install` para instalar as dependencias do projeto;
 6. Rode `npm run serve` para iniciar o servidor de desenvolvimento.
 7. Acesse o projeto pela url [http://localhost:8080](http://localhost:8080)
