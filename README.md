@@ -3,7 +3,7 @@
 </h1>
 
 <p align="center">
-  <img alt="VueJs.org" href="https://vuejs.org/" src="https://img.shields.io/badge/language-vue-brightgreen">
+  <img alt="VueJs.org" href="https://vuejs.org/" src="https://img.shields.io/badge/framework-vue-brightgreen">
 
   <a href="https://github.com/autobele">
     <img alt="Autobele" src="https://img.shields.io/badge/made%20by-autobele-brightgreen">
