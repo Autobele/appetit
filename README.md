@@ -12,7 +12,11 @@
 </p>
 
 <p align="center">
-  <a href="#-instalacao-e-execução">Instalação e execução</a>
+  <a href="#-instalacao-e-execução">Instalação e execução</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-o-projeto">O projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#tecnologias-e-bibliotecas-utilizadas">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#hand-off">Hand-off</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#requisitos">Requisitos</a>
 </p>
 
 ## O projeto
@@ -36,7 +40,7 @@ Para clonar o projeto e executar, se faz necessários as instalações abaixo:
 2. Npm ou Yarn
 3. Git (opcional)
 
-## Instalação e execução do projeto
+## Instalação e execução
 
 1. Abra o terminal do seu computador powershell ou shell linux
 2. Altere o diretório de trabalho atual para o local em que deseja ter o código do módulo salvo no seu computador.
