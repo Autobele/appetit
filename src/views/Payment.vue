@@ -67,9 +67,11 @@
           <input type="date" v-model="dateOrder"/>
         </div>
       </div>
-      <button type="button" class="btn-finish" :disabled="!(checkedRadio && dateOrder)">
-        <span>finalizar</span>
-      </button>
+      <router-link to="/feedback">
+        <button type="button" class="btn-finish" :disabled="!(checkedRadio && dateOrder)">
+          <span>finalizar</span>
+        </button>
+      </router-link>
     </section>
   </GridTreeColumns>
 </template>

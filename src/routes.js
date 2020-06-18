@@ -8,6 +8,7 @@ import SelectProduct from '@/views/SelectProduct.vue';
 import SelectClient from '@/views/SelectClient.vue';
 import DetailProduct from '@/views/DetailProduct.vue';
 import Payment from '@/views/Payment.vue';
+import Feedback from '@/views/Feedback.vue';
 
 Vue.use(Router);
 
@@ -51,6 +52,11 @@ const routes = [
         name: "payment",
         path: '/payment',
         component: Payment
+    },
+    {
+        name: "feedback",
+        path: '/feedback',
+        component: Feedback
     },
 ]
 
