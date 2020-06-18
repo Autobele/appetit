@@ -15,7 +15,7 @@
   <a href="#-instalacao-e-execução">Instalação e execução</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-o-projeto">O projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#tecnologias-e-bibliotecas-utilizadas">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#hand-off">Hand-off</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#hand-off">Protótipo</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#requisitos">Requisitos</a>
 </p>
 
@@ -28,9 +28,9 @@ Criado com a frontend VueJs, o projeto tem como finalidade simular o atendimento
 1. Vue
 2. Vue Router
 
-## Hand-off
+## Protótipo
 
-O hand-off original deste projeto pode ser conferido na plataforma Figma pelo link: [Apettit](https://www.figma.com/file/XTbAE7DPmkrAI0b5hmzB64Vd/Appetit_web?node-id=68%3A2)  
+O prototipo original deste projeto pode ser conferido na plataforma Figma pelo link: [Apettit](https://www.figma.com/file/XTbAE7DPmkrAI0b5hmzB64Vd/Appetit_web?node-id=68%3A2)  
 
 ## Requisitos
 
